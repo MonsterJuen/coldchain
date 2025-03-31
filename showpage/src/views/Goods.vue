@@ -202,7 +202,7 @@ export default {
   methods: {
     async fetchGoodsList() {
       try {
-        const response = await axios.get('http://localhost:8080/api/goods/list', {
+        const response = await axios.get('http://localhost:8090/api/goods/list', {
           params: this.filterForm
         })
         this.goodsList = response.data.items
@@ -241,10 +241,10 @@ export default {
       try {
         await this.$refs.goodsForm.validate()
         if (this.dialogTitle === '新增入库') {
-          await axios.post('http://localhost:8080/api/goods/create', this.goodsForm)
+          await axios.post('http://localhost:8090/api/goods/create', this.goodsForm)
           this.$message.success('入库成功')
         } else {
-          await axios.put(`http://localhost:8080/api/goods/update/${this.goodsForm.goodsId}`, this.goodsForm)
+          await axios.put(`http://localhost:8090/api/goods/update/${this.goodsForm.goodsId}`, this.goodsForm)
           this.$message.success('更新成功')
         }
         this.dialogVisible = false
@@ -263,7 +263,7 @@ export default {
         await this.$confirm('确认删除该货物？', '提示', {
           type: 'warning'
         })
-        await axios.delete(`http://localhost:8080/api/goods/delete/${row.goodsId}`)
+        await axios.delete(`http://localhost:8090/api/goods/delete/${row.goodsId}`)
         this.$message.success('删除成功')
         this.fetchGoodsList()
       } catch (error) {
@@ -277,7 +277,7 @@ export default {
         await this.$confirm('确认出库该货物？', '提示', {
           type: 'warning'
         })
-        await axios.post(`http://localhost:8080/api/goods/out/${row.goodsId}`)
+        await axios.post(`http://localhost:8090/api/goods/out/${row.goodsId}`)
         this.$message.success('出库成功')
         this.fetchGoodsList()
       } catch (error) {

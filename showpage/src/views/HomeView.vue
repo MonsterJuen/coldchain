@@ -130,7 +130,7 @@ const stats = ref({
 const recentItems = ref([])
 const recentOrders = ref([])
 
-const API_BASE_URL = 'http://localhost:8080/api'
+const API_BASE_URL = 'http://localhost:8090/api'
 
 // 获取统计数据
 const fetchStats = async () => {

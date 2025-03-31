@@ -73,7 +73,7 @@ export default {
         this.loading = true
 
         const { confirmPassword, ...registerData } = this.registerForm
-        await axios.post('http://localhost:8080/api/register', registerData)
+        await axios.post('http://localhost:8090/api/register', registerData)
         
         ElMessage.success('注册成功')
         this.$router.push('/login')

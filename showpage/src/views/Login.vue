@@ -43,7 +43,7 @@ export default {
         await this.$refs.loginForm.validate()
         this.loading = true
 
-        const response = await axios.post('http://localhost:8080/api/login', this.loginForm)
+        const response = await axios.post('http://localhost:8090/api/login', this.loginForm)
         
         if (response.data.token) {
           localStorage.setItem('token', response.data.token)
